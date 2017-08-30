@@ -1,5 +1,13 @@
 {
   "manifest_version": 2,
-  "name": "My Cool Extension",
-  "version": "0.1"
+  "name": "Economist Print Edition Reader",
+  "version": "0.1",
+  "content_scripts": [
+  {
+    "matches": [
+      "https://www.economist.com/printedition/*"
+    ],
+    "js": ["jquery-3.2.1.min.js", "content.js"]
+  }
+  ]
 }
