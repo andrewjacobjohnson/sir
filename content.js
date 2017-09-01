@@ -15,7 +15,7 @@ function ajjClickCB() {
         `);
         items[currentname] = currentbox.checked;
         console.log(items[currentname]);
-        input[url] = items;
+        input["checks"] = items;
         chrome.storage.local.set(input, function(){
             console.log(currentname + " is " + currentbox.checked);
             chrome.storage.local.get([url], function(items2){
@@ -35,8 +35,9 @@ $(".list__link").wrap("<div class='ajj-link-wrap'></div>");
 $(".ajj-link-wrap").prepend("<input type='checkbox' class='ajj-checkbox' style='position: absolute; margin-left: -10px;'>");
 var stories = document.getElementsByClassName("ajj-link-wrap");
 
-chrome.storage.local.get([url], function(items){
-    if (typeof items !== 'array') {
+chrome.storage.local.get(url, function(items){
+    console.log(items);
+    if (typeof items === 'array') {
         var items = [];
         for (var i = 0; i < stories.length; i++) {
             items.push(false);
