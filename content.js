@@ -36,7 +36,29 @@ $(".ajj-link-wrap").prepend("<input type='checkbox' class='ajj-checkbox' style='
 var stories = document.getElementsByClassName("ajj-link-wrap");
 
 chrome.storage.local.get(url, function(items){
+    console.log(`
+    
+    ITEMS RETRIEVED AT ` + url + `:
+    `);
+    console.log(items[url]);
+    var checks = items[url];
+        var checks = [];
+        items.checks[0] = true;
+        items.checks[1] = false;
     console.log(items);
+    items = {};
+    if (typeof items.checks === 'undefined') {
+        items.checks = [];
+        for (var i = 0; i < stories.length; i++) {
+            items.checks.push(false);
+        }
+    }
+    console.log(`here's what we'll set it up with:`);
+    console.log(url);
+    newItems = {};
+    newItems[url] = items.checks;
+    console.log(newItems); 
+//    console.log(items);
     if (typeof items === 'array') {
         var items = [];
         for (var i = 0; i < stories.length; i++) {
