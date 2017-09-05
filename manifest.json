@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "Economist Print Edition Reader",
-  "version": "0.1",
+  "name": "SIR— Progress Tracker for The Economist Print Edition",
+  "version": "0.2.0.0",
   "content_scripts": [
   {
     "matches": [
